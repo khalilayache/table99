@@ -1,60 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="horizontal"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="5dp"
-    >
+    android:orientation="horizontal"
+    android:padding="5dp">
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_weight="6"
-            android:layout_gravity="center_vertical"
-            android:scaleType="centerInside"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:gravity="center"/>
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_weight="6"
+        android:gravity="center"
+        android:scaleType="centerInside"
+        android:src="@mipmap/ic_launcher_round" />
 
-        <TextView
-            android:id="@+id/nameView"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="9"
-            android:gravity="center"
-            android:maxLines="2"
-            android:ellipsize="end"
-            android:layout_gravity="center_vertical"
-            android:textSize="14sp"
-            android:textColor="@android:color/black"
-            tools:text="Steve Jobs"/>
+    <TextView
+        android:id="@+id/nameView"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="9"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:maxLines="2"
+        android:text="@string/error_not_available"
+        android:textColor="@android:color/black"
+        android:textSize="14sp" />
 
-        <TextView
-            android:id="@+id/birthdayView"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="9"
-            android:gravity="center"
-            android:maxLines="1"
-            android:layout_gravity="center_vertical"
-            android:textSize="14sp"
-            android:textColor="@android:color/black"
-            tools:text="Steve Jobs"/>
+    <TextView
+        android:id="@+id/birthdayView"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="9"
+        android:gravity="center"
+        android:maxLines="1"
+        android:text="@string/error_not_available"
+        android:textColor="@android:color/black"
+        android:textSize="14sp" />
 
-        <TextView
-            android:id="@+id/bioView"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="7"
-            android:maxLines="1"
-            android:gravity="center"
-            android:layout_gravity="center_vertical"
-            android:textSize="14sp"
-            android:ellipsize="end"
-            android:textColor="@android:color/black"
-            tools:text="Steve Jobs"/>
+    <TextView
+        android:id="@+id/bioView"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="7"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:maxLines="1"
+        android:text="@string/error_not_available"
+        android:textColor="@android:color/black"
+        android:textSize="14sp" />
 
 </LinearLayout>

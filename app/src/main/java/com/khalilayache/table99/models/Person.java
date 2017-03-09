@@ -1,7 +1,9 @@
-package com.khalilayache.table99.model;
+package com.khalilayache.table99.models;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+
+import com.google.gson.annotations.SerializedName;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -10,16 +12,18 @@ import java.util.Locale;
 
 public class Person implements Parcelable {
 
+    @SerializedName("birthday")
     private String birthday;
+    @SerializedName("image")
     private String image;
+    @SerializedName("name")
     private String name;
+    @SerializedName("bio")
     private String bio;
+    @SerializedName("id")
     private String id;
 
-    public Person() {
-    }
-
-    protected Person(Parcel in) {
+    private Person(Parcel in) {
         birthday = in.readString();
         image = in.readString();
         name = in.readString();
@@ -43,16 +47,9 @@ public class Person implements Parcelable {
         return convertDateISOToString(this.birthday);
     }
 
-    public void setBirthday(String birthday) {
-        this.birthday = birthday;
-    }
 
     public String getImage() {
         return this.image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
     }
 
     public String getName() {
@@ -67,10 +64,6 @@ public class Person implements Parcelable {
         return this.bio;
     }
 
-    public void setBio(String bio) {
-        this.bio = bio;
-    }
-
     public String getId() {
         return this.id;
     }
@@ -79,8 +72,8 @@ public class Person implements Parcelable {
         this.id = id;
     }
 
-    private String convertDateISOToString(String dateISO){
-        String stringDate = null;
+    private String convertDateISOToString(String dateISO) {
+        String stringDate;
         try {
             SimpleDateFormat isoDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.US);
             Date date = isoDateFormat.parse(dateISO);
@@ -108,5 +101,16 @@ public class Person implements Parcelable {
         dest.writeString(name);
         dest.writeString(bio);
         dest.writeString(id);
+    }
+
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
     }
 }
