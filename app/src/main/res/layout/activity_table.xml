@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.khalilayache.table99.views.TableActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/colorPrimary"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="6"
+            android:textAlignment="center"
+            android:text="@string/photo"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:textColor="@color/colorTextHeader"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="9"
+            android:textAlignment="center"
+            android:text="@string/name"
+            android:textStyle="bold"
+            android:textAllCaps="true"
+            android:textSize="15sp"
+            android:textColor="@color/colorTextHeader"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="9"
+            android:textAlignment="center"
+            android:text="@string/birthday"
+            android:textStyle="bold"
+            android:textAllCaps="true"
+            android:textSize="15sp"
+            android:textColor="@color/colorTextHeader"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="7"
+            android:textAlignment="center"
+            android:text="@string/bio"
+            android:textStyle="bold"
+            android:textAllCaps="true"
+            android:textSize="15sp"
+            android:textColor="@color/colorTextHeader"
+            />
+
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/listView"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+/>
+
+</LinearLayout>

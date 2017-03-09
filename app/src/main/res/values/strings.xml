@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">99Tab</string>
+    <string name="photo">Photo</string>
+    <string name="name">Name</string>
+    <string name="birthday">Birthday</string>
+    <string name="bio">Bio</string>
+    <string name="error_not_available">Not available</string>
+    <string name="error_no_id">N/A</string>
+</resources>
