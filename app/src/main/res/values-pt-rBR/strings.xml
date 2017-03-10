@@ -1,0 +1,8 @@
+<resources>
+
+    <string name="photo">Foto</string>
+    <string name="name">Nome</string>
+    <string name="birthday">Data Nasc</string>
+    <string name="bio">Bio</string>
+    <string name="error_not_available">Não disponível</string>
+</resources>

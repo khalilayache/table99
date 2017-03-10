@@ -5,5 +5,4 @@
     <string name="birthday">Birthday</string>
     <string name="bio">Bio</string>
     <string name="error_not_available">Not available</string>
-    <string name="error_no_id">N/A</string>
 </resources>
