@@ -7,13 +7,7 @@ import android.widget.TextView;
 
 import com.khalilayache.table99.R;
 
-/**
- * Created by USUARIO
- * on 09/03/2017.
- */
-
 public class PersonRecyclerViewHolder extends RecyclerView.ViewHolder {
-
 
     public final ImageView imageView;
     public final TextView nameView;

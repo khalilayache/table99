@@ -43,13 +43,13 @@ public class PersonRecyclerAdapter extends RecyclerView.Adapter {
 
         final Person currentPerson = personArrayList.get(position);
 
-        if(currentPerson.getName() != null)
+        if (currentPerson.getName() != null && !currentPerson.getName().equals(""))
             viewHolder.nameView.setText(currentPerson.getName());
-        if(currentPerson.getBio() != null)
+        if (currentPerson.getBio() != null && !currentPerson.getBio().equals(""))
             viewHolder.bioView.setText(currentPerson.getBio());
-        if(currentPerson.getBirthday() != null)
+        if (currentPerson.getBirthday() != null && !currentPerson.getBirthday().equals(""))
             viewHolder.birthdayView.setText(currentPerson.getBirthday());
-        if(currentPerson.getImage() != null)
+        if (currentPerson.getImage() != null && !currentPerson.getImage().equals(""))
             Picasso.with(context)
                     .load(currentPerson.getImage())
                     .placeholder(R.mipmap.ic_launcher_round)
@@ -57,7 +57,6 @@ public class PersonRecyclerAdapter extends RecyclerView.Adapter {
                     .into(viewHolder.imageView);
 
         setClickListeners(viewHolder, currentPerson);
-
 
 
     }
@@ -74,7 +73,7 @@ public class PersonRecyclerAdapter extends RecyclerView.Adapter {
         viewHolder.birthdayView.setOnClickListener(onItemClickListener(currentPerson));
     }
 
-    private View.OnClickListener onItemClickListener(final Person currentPerson){
+    private View.OnClickListener onItemClickListener(final Person currentPerson) {
 
         return new View.OnClickListener() {
             @Override

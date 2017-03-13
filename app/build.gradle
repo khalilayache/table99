@@ -19,14 +19,31 @@ android {
     }
 }
 
-dependencies {
+final androidSupportVersion = '25.2.0'
+final picassoVersion = '2.5.2'
+final gsonVersion = '2.7'
+final espressoVersion = '2.2.2'
+
+        dependencies
+{
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+
+    compile "com.android.support:appcompat-v7:$androidSupportVersion"
+    compile "com.android.support:recyclerview-v7:$androidSupportVersion"
+    compile "com.squareup.picasso:picasso:$picassoVersion"
+    compile "com.google.code.gson:gson:$gsonVersion"
+
+    androidTestCompile "com.android.support.test.espresso:espresso-core:$espressoVersion"
+    androidTestCompile "com.android.support.test:runner:0.5"
+    androidTestCompile "com.android.support:support-annotations:$androidSupportVersion"
+    androidTestCompile "com.android.support.test.espresso:espresso-intents:$espressoVersion"
+    androidTestCompile("com.android.support.test.espresso:espresso-contrib:2.2") {
+        exclude group: 'com.android.support', module: 'appcompat'
+        exclude group: 'com.android.support', module: 'support-v4'
         exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    compile 'com.android.support:appcompat-v7:25.2.0'
-    compile 'com.android.support:recyclerview-v7:25.2.0'
-    compile 'com.squareup.picasso:picasso:2.5.2'
-    compile 'com.google.code.gson:gson:2.7'
+        exclude module: 'recyclerview-v7'
+    }
+
+
     testCompile 'junit:junit:4.12'
 }

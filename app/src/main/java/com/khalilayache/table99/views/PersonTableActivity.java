@@ -13,7 +13,6 @@ import com.khalilayache.table99.models.Person;
 
 import java.util.ArrayList;
 
-
 public class PersonTableActivity extends AppCompatActivity {
 
     private static final String PERSON_LIST = "personList";

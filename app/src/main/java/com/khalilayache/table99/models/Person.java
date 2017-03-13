@@ -23,6 +23,9 @@ public class Person implements Parcelable {
     @SerializedName("id")
     private String id;
 
+    public Person() {
+    }
+
     private Person(Parcel in) {
         birthday = in.readString();
         image = in.readString();
@@ -47,17 +50,12 @@ public class Person implements Parcelable {
         return convertDateISOToString(this.birthday);
     }
 
-
     public String getImage() {
         return this.image;
     }
 
     public String getName() {
         return this.name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getBio() {
@@ -68,8 +66,12 @@ public class Person implements Parcelable {
         return this.id;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     private String convertDateISOToString(String dateISO) {
@@ -81,8 +83,7 @@ public class Person implements Parcelable {
             SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.US);
             stringDate = dateFormat.format(date);
 
-        } catch (ParseException e) {
-            e.printStackTrace();
+        } catch (ParseException | NullPointerException e) {
             stringDate = null;
         }
 

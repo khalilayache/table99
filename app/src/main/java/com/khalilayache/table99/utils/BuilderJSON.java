@@ -25,7 +25,7 @@ public final class BuilderJSON {
         }.getType();
         ArrayList<Person> personArrayList = gson.fromJson(loadJSONFromAsset(context), type);
 
-        return removeDuplicatePerson(personArrayList);
+        return removeEmptyPerson(removeDuplicatePerson(personArrayList));
     }
 
     private static ArrayList<Person> removeDuplicatePerson(ArrayList<Person> personArrayList) {
@@ -45,6 +45,22 @@ public final class BuilderJSON {
         }
 
         return personTempArrayList;
+    }
+
+    private static ArrayList<Person> removeEmptyPerson(ArrayList<Person> personArrayList) {
+
+        for (int i = 0; i < personArrayList.size(); ) {
+            if ((personArrayList.get(i).getBio() == null || personArrayList.get(i).getBio().equals("")) &&
+                    (personArrayList.get(i).getName() == null || personArrayList.get(i).getName().equals("")) &&
+                    (personArrayList.get(i).getBirthday() == null || personArrayList.get(i).getBirthday().equals("")) &&
+                    (personArrayList.get(i).getImage() == null || personArrayList.get(i).getImage().equals(""))) {
+                personArrayList.remove(i);
+                i--;
+            }
+            i++;
+        }
+
+        return personArrayList;
     }
 
     private static String loadJSONFromAsset(Context context) {

@@ -44,7 +44,16 @@ public class PersonDetailsActivity extends AppCompatActivity {
         bioView = (TextView) findViewById(R.id.bioView);
         imageView = (ImageView) findViewById(R.id.imageView);
 
-        fillViewFields();
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
+        
+        if (person != null) {
+            fillViewFieldsWithContents();
+        } else {
+            fillViewFieldsWithoutContents();
+        }
     }
 
     @Override
@@ -52,39 +61,6 @@ public class PersonDetailsActivity extends AppCompatActivity {
         savedInstanceState.putParcelable(PERSON_EXTRA, person);
 
         super.onSaveInstanceState(savedInstanceState);
-    }
-
-    private void fillViewFields() {
-        if (person.getName() != null)
-            nameView.setText(getString(R.string.name) + ": " + person.getName());
-        else
-            nameView.setText(getString(R.string.name) + ": " + getString(R.string.error_not_available));
-
-        if (person.getBirthday() != null)
-            birthdayView.setText(getString(R.string.birthday) + ": " + person.getBirthday());
-        else
-            birthdayView.setText(getString(R.string.birthday) + ": " + getString(R.string.error_not_available));
-
-        if (person.getBio() != null)
-            bioView.setText(getString(R.string.bio) + ": " + person.getBio());
-        else
-            bioView.setText(getString(R.string.bio) + ": " + getString(R.string.error_not_available));
-
-        Picasso.with(imageView.getContext())
-                .load(person.getImage())
-                .placeholder(R.mipmap.ic_launcher_round)
-                .error(R.mipmap.ic_launcher_round)
-                .into(imageView);
-
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setDisplayShowHomeEnabled(true);
-            if (person.getName() != null)
-                getSupportActionBar().setTitle(person.getName());
-            else
-                getSupportActionBar().setTitle(getString(R.string.error_not_available));
-        }
-
     }
 
     @Override
@@ -98,4 +74,46 @@ public class PersonDetailsActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    private void fillViewFieldsWithContents() {
+
+        if (person.getName() != null && !person.getName().equals("")) {
+            nameView.setText(getString(R.string.name) + ": " + person.getName());
+            if (getSupportActionBar() != null)
+                getSupportActionBar().setTitle(person.getName());
+        } else {
+            nameView.setText(getString(R.string.name) + ": " + getString(R.string.error_not_available));
+            if (getSupportActionBar() != null)
+                getSupportActionBar().setTitle(getString(R.string.error_not_available));
+        }
+
+        if (person.getBirthday() != null && !person.getName().equals(""))
+            birthdayView.setText(getString(R.string.birthday) + ": " + person.getBirthday());
+        else
+            birthdayView.setText(getString(R.string.birthday) + ": " + getString(R.string.error_not_available));
+
+        if (person.getBio() != null && !person.getName().equals(""))
+            bioView.setText(getString(R.string.bio) + ": " + person.getBio());
+        else
+            bioView.setText(getString(R.string.bio) + ": " + getString(R.string.error_not_available));
+
+        if(person.getImage() != null && !person.getImage().equals(""))
+        Picasso.with(imageView.getContext())
+                .load(person.getImage())
+                .placeholder(R.mipmap.ic_launcher_round)
+                .error(R.mipmap.ic_launcher_round)
+                .into(imageView);
+
+    }
+
+    private void fillViewFieldsWithoutContents() {
+        nameView.setText(getString(R.string.name) + ": " + getString(R.string.error_not_available));
+        birthdayView.setText(getString(R.string.birthday) + ": " + getString(R.string.error_not_available));
+        bioView.setText(getString(R.string.bio) + ": " + getString(R.string.error_not_available));
+        imageView.setImageResource(R.mipmap.ic_launcher_round);
+        if (getSupportActionBar() != null)
+            getSupportActionBar().setTitle(getString(R.string.error_not_available));
+    }
+
+
 }
