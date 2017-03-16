@@ -100,8 +100,8 @@ public class PersonDetailsActivity extends AppCompatActivity {
         if(person.getImage() != null && !person.getImage().equals(""))
         Picasso.with(imageView.getContext())
                 .load(person.getImage())
-                .placeholder(R.mipmap.ic_launcher_round)
-                .error(R.mipmap.ic_launcher_round)
+                .placeholder(R.mipmap.ic_launcher)
+                .error(R.mipmap.ic_launcher)
                 .into(imageView);
 
     }
@@ -110,7 +110,7 @@ public class PersonDetailsActivity extends AppCompatActivity {
         nameView.setText(getString(R.string.name) + ": " + getString(R.string.error_not_available));
         birthdayView.setText(getString(R.string.birthday) + ": " + getString(R.string.error_not_available));
         bioView.setText(getString(R.string.bio) + ": " + getString(R.string.error_not_available));
-        imageView.setImageResource(R.mipmap.ic_launcher_round);
+        imageView.setImageResource(R.mipmap.ic_launcher);
         if (getSupportActionBar() != null)
             getSupportActionBar().setTitle(getString(R.string.error_not_available));
     }
